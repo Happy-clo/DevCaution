@@ -72,6 +72,6 @@ python main.py
 
 ## 许可 / License
 
-此项目根据 MIT 许可协议进行许可 - 详见 [LICENSE](LICENSE) 文件。
+此项目根据 Apache License 许可协议进行许可 - 详见 [LICENSE](LICENSE) 文件。
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
