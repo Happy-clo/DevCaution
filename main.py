@@ -141,8 +141,12 @@ async def update_readme(session, repo_name, content, branch):
 async def process_repository(session, repo, to_modify, modified):
     repo_name = repo["name"]
     default_branch = repo["default_branch"]
-    readme_content = await fetch_readme(session, repo_name, default_branch)
 
+    if repo.get("fork"):
+        logging.info(f"仓库 {repo_name} 是一个 fork，跳过处理。")
+        return  # 如果是fork，直接返回
+
+    readme_content = await fetch_readme(session, repo_name, default_branch)
     new_content = ""
 
     if readme_content:
@@ -170,7 +174,6 @@ async def process_repository(session, repo, to_modify, modified):
             modified.append(repo_name)
     else:
         logging.info(f"仓库 {repo_name} 不需要更改")
-
 
 async def main():
     to_modify = []
